@@ -1,0 +1,48 @@
+@use "../base/madia" as *;
+@use "../base/mixin" as *;
+
+.radio {
+  display: flex;
+  align-items: center;
+  column-gap: 14px;
+  transition: var(--transition-duration);
+
+  @include hover {
+    opacity: 0.7;
+  }
+
+  &__input {
+    &:not(:checked) + .radio__emulator::after {
+      opacity: 0;
+      transition: var(--transition-duration);
+    }
+  }
+
+  &__emulator {
+    border-radius: 29px;
+    border: var(--border);
+    position: relative;
+    background-color: var(--color-light);
+
+    @include flex-center;
+    @include square(28px);
+
+    &::after {
+      content: "";
+      height: 16px;
+      width: 16px;
+      background: var(--color-green);
+      border-radius: inherit;
+
+      @include abs-center;
+    }
+  }
+
+  &__label {
+    font-size: 18px;
+
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+}

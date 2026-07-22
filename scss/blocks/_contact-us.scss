@@ -1,0 +1,79 @@
+@use "../base/madia" as *;
+@use "../base/mixin" as *;
+
+.contact-us {
+  --contactUsOffsetY: 62px;
+
+  position: relative;
+
+  overflow-x: hidden;
+
+  @include mobile-above {
+    background-color: var(--color-gray);
+    padding: 60px 100px 80px;
+    border-radius: var(--border-radius-big);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 98%;
+    translate: -49% -50%;
+    height: calc(100% - var(--contactUsOffsetY) * 2);
+    aspect-ratio: 1;
+    background: url(../../img/form/contact-us-img.svg) center/contain no-repeat;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    max-width: 556px;
+
+    @include tablet {
+      margin: auto;
+    }
+
+    @include mobile-above {
+      row-gap: 40px;
+    }
+  }
+
+  &__request {
+    @include mobile {
+      background-color: var(--color-gray);
+      padding: 40px 30px 36px 30px;
+      border-top-right-radius: var(--border-radius-big);
+      border-top-left-radius: var(--border-radius-big);
+    }
+
+    @include mobile-small {
+      padding: 40px 15px 36px 15px;
+    }
+  }
+
+  &__body {
+    width: 100%;
+    max-width: 556px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+
+    @include mobile {
+      background-color: var(--color-gray);
+      padding: 0 30px 50px 30px;
+      margin-bottom: 30px;
+      row-gap: 20px;
+      border-bottom-right-radius: var(--border-radius-big);
+      border-bottom-left-radius: var(--border-radius-big);
+    }
+
+    @include mobile-small {
+      padding: 0 15px 40px 15px;
+    }
+  }
+}

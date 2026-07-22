@@ -1,0 +1,19 @@
+@use "../base/mixin" as *;
+@use "../base/madia" as *;
+
+.puddle-bg {
+  border-radius: var(--border-radius-smoll);
+
+  padding: 0 7px;
+  background-color: var(--color-green);
+
+  &--accent {
+    background-color: #fff;
+  }
+
+   &--s {
+    @include mobile {
+    min-height: 46px;
+  }
+   }
+}

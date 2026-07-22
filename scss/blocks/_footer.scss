@@ -1,0 +1,152 @@
+@use "../base/mixin" as *;
+@use "../base/madia" as *;
+
+.footer {
+  padding-bottom: 0;
+
+  @include mobile {
+    padding: 0;
+  }
+
+  &__inner {
+    background-color: var(--color-black);
+    border-radius: var(--border-radius-big) var(--border-radius-big) 0 0;
+    padding: 55px 60px 50px;
+    display: flex;
+    flex-direction: column;
+
+    @include mobile {
+      padding: 50px 20px 30px;
+      border-radius: 0 0;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include tablet {
+      display: contents;
+    }
+  }
+
+  &_list {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+
+    @include tablet {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  &__logo {
+    @include tablet {
+      margin: auto;
+      padding-bottom: 37px;
+    }
+  }
+
+  &__link {
+    text-decoration: underline;
+    color: var(--color-light);
+    transition: var(--transition-duration);
+    display: inline-flex;
+    align-items: center;
+    height: 30px;
+
+    &:hover {
+      color: var(--color-green);
+    }
+  }
+
+  &__body {
+    padding-block: 66px 50px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid var(--color-light);
+
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;
+
+    a {
+      text-decoration: underline;
+
+      @include hover {
+        color: var(--color-green);
+      }
+    }
+
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+      gap: 37px;
+    }
+    @include tablet {
+      order: 1;
+      padding: 37px 0;
+      border: unset;
+      margin-bottom: 0;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 27px;
+
+    @include tablet {
+      align-items: center;
+      text-align: center;
+      gap: 37px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--color-light);
+
+    @include fluid-text(18, 16);
+
+    @include tablet {
+      gap: 15px;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  &__extra {
+    color: var(--color-light);
+    display: flex;
+    gap: 40px;
+
+    @include fluid-text(18, 16);
+
+    @include tablet {
+      gap: 20px;
+    }
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 15px;
+      order: 3;
+    }
+  }
+
+  &__privacy-policy {
+    text-decoration: underline;
+
+    @include hover {
+      color: var(--color-green);
+    }
+  }
+}

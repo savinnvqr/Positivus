@@ -1,0 +1,140 @@
+@use "../base/madia" as *;
+@use "../base/mixin" as *;
+
+.services {
+  margin-bottom: 100px;
+
+  @include mobile {
+    margin-bottom: 70.5px;
+  }
+
+  &__item {
+    border-radius: var(--border-radius-big);
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    min-height: 310px;
+    max-width: 598px;
+    width: 100%;
+    padding: 50px;
+    display: flex;
+
+    @include mobile-s {
+      padding: 30px;
+    }
+
+    &--gray {
+      background-color: var(--color-gray);
+    }
+
+    &--green {
+      background-color: var(--color-green);
+    }
+
+    &--black {
+      background-color: var(--color-black);
+    }
+  }
+
+  .service-card {
+    display: flex;
+    justify-content: space-between;
+
+    column-gap: 30px;
+    flex-grow: 1;
+
+    @include mobile {
+      display: grid;
+      grid-template-columns: auto auto;
+      row-gap: 27px;
+    }
+
+    &__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      row-gap: 30px;
+
+      @include mobile {
+        display: contents;
+      }
+    }
+
+    &__title {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+
+      @include mobile {
+        grid-column: -1 / 1;
+      }
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      @include mobile {
+        align-self: flex-end;
+      }
+
+      @include hover {
+        opacity: 0.7;
+      }
+    }
+
+    &__img {
+      align-self: center;
+
+      @include desktop {
+        max-width: 50%;
+        height: auto;
+      }
+
+      @include mobile {
+        max-width: 165px;
+      }
+
+      @include mobile-s {
+        max-width: 149px;
+      }
+    }
+
+    &__link-icon-wrapper {
+      display: inline-flex;
+    }
+
+    &__link-label {
+      line-height: 140%;
+      font-size: 20px;
+
+      @include tablet {
+        @include visually-hidden;
+      }
+
+      &--light {
+        color: #fff;
+      }
+    }
+
+    &__link-icon-svg {
+      border-radius: 100%;
+    }
+
+    &__link-icon-background {
+      fill: var(--color-black);
+
+      &--accent {
+        fill: #fff;
+      }
+    }
+
+    &__link-icon-color {
+      fill: var(--color-green);
+
+      &--accent {
+        fill: var(--color-black);
+      }
+    }
+  }
+}

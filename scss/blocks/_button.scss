@@ -1,0 +1,54 @@
+@use "../base/mixin" as *;
+@use "../base/madia" as *;
+
+.button {
+  @include reset-button;
+
+  @include flex-center;
+
+  border-radius: var(--border-radius);
+  padding-inline: 35px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 140%;
+  height: var(--button-height);
+  background-color: var(--color-black);
+  border: var(--border);
+
+  @include mobile-s {
+    font-size: 16px;
+  }
+
+  @include hover {
+    color: var(--color-black);
+    background-color: var(--color-green);
+  }
+
+  &--transparent {
+    background-color: transparent;
+    color: var(--color-black-global);
+  }
+
+  &--dialog {
+    justify-self: center;
+    margin-top: 20px;
+    font-size: 18px;
+    padding-inline: 20 px;
+    line-height: 100%;
+    height: 55px;
+  }
+
+  &--team {
+    padding-inline: 76px;
+    width: 100%;
+  }
+
+  &--accent {
+    background-color: var(--color-green);
+    color: var(--color-black-global);
+
+    @include hover {
+      opacity: 0.8;
+    }
+  }
+}

@@ -1,0 +1,126 @@
+@use "../base/mixin" as *;
+@use "../base/madia" as *;
+
+.hero {
+  &__main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    column-gap: 30px;
+    padding-bottom: var(--container-padding-y);
+
+    @include mobile {
+      flex-direction: column;
+      padding-bottom: 60px;
+    }
+  }
+
+  &__body {
+    max-width: 532px;
+    padding-bottom: 34px;
+
+    @include mobile {
+      display: contents;
+    }
+  }
+
+  &__title {
+    @include mobile {
+      order: -2;
+    }
+  }
+
+  &__text {
+    max-width: 498px;
+    margin: 35px 0;
+    line-height: 140%;
+
+    @include fluid-text(20, 16);
+
+    @include mobile {
+      line-height: 150%;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__button {
+    @include mobile {
+      width: 100%;
+      max-width: 390px;
+      margin-inline: auto;
+    }
+  }
+
+  &__img {
+    max-width: 600.46px;
+
+    @include tablet {
+      max-width: 40%;
+    }
+
+    @include mobile {
+      order: -1;
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      padding-top: 10px;
+    }
+  }
+
+  &__partners-list {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 38px;
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 20px;
+    }
+
+    @include mobile-s {
+      --heroPartnersWidthOffsetX: 60px;
+
+      column-gap: 0;
+      width: calc(100vw + var(--heroPartnersWidthOffsetX) * 2);
+      margin-left: calc(
+        (var(--heroPartnersWidthOffsetX) + var(--container-padding-x)) * -1
+      );
+    }
+  }
+
+  &__partners-item {
+    display: flex;
+    @include tablet {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @include mobile-s {
+      justify-content: start;
+
+      &:nth-child(-n + 3) {
+        justify-content: end;
+      }
+
+      &--notino {
+        order: 2;
+      }
+
+      &--netflix {
+        order: 1;
+      }
+
+      &--zoom {
+        order: 3;
+      }
+    }
+  }
+
+  &__partners-image {
+    filter: grayscale(1);
+  }
+}

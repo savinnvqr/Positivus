@@ -1,0 +1,62 @@
+@use "../base/mixin" as *;
+@use "../base/madia" as *;
+
+.banner {
+  --bannerImageOffsetY: 24px;
+
+  position: relative;
+  padding: var(--bannerImageOffsetY) 0;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: var(--color-gray);
+    padding: 60px;
+    border-radius: var(--border-radius-big);
+
+    @include mobile {
+      padding: 50px;
+    }
+  }
+
+  &__body {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 26px;
+
+    @include desktop {
+      max-width: 450px;
+    }
+
+
+    @include mobile {
+      row-gap: 20px;
+    }
+  }
+
+  &__subtitle {
+    @include fluid-text(18, 16);
+
+    @include mobile {
+      line-height: 150%;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    right: 135px;
+
+    @include desktop {
+      right: 60px;
+    }
+
+    @include tablet {
+      max-width: 25%;
+      height: auto;
+    }
+  }
+}

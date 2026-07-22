@@ -1,0 +1,25 @@
+@use "../base/mixin" as *;
+@use "../base/madia" as *;
+
+.pagination {
+  &__list {
+    display: flex;
+    gap: 9px;
+  }
+
+  &__button {
+    @include reset-button;
+    @include square(24px);
+    @include flex-center;
+
+    color: var(--color-light);
+
+    @include hover {
+      color: var(--color-green);
+    }
+
+    &.is-current {
+      color: var(--color-green);
+    }
+  }
+}

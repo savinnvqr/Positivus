@@ -1,0 +1,24 @@
+@use "../base/mixin" as *;
+@use "../base/madia" as *;
+
+.soc1als {
+  @include tablet {
+    order: 2;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 37px;
+    margin-bottom: 37px;
+    display: flex;
+    justify-content: center;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+  }
+
+  &__item {
+    @include hover {
+      opacity: 0.7;
+    }
+  }
+}

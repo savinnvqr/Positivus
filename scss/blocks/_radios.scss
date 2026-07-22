@@ -1,0 +1,21 @@
+@use "../base/madia" as *;
+@use "../base/mixin" as *;
+
+.radios {
+  display: flex;
+  column-gap: 25px;
+
+  @include mobile {
+    column-gap: 60px;
+  }
+
+  @include width(382px) {
+    column-gap: 25px;
+  }
+
+  &__title {
+  }
+
+  &__item {
+  }
+}

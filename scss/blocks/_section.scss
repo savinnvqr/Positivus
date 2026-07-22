@@ -1,0 +1,23 @@
+@use "../base/mixin" as *;
+@use "../base/madia" as *;
+
+.section {
+  padding-block: var(--container-padding-y);
+  overflow-x: hidden;
+
+  &--testimonials {
+    padding-top: 30px;
+  }
+
+  &--hero {
+    padding-top: 0;
+  }
+
+  &--process {
+    max-width: 292px;
+  }
+
+  &__discription--team {
+    max-width: 473px;
+  }
+}

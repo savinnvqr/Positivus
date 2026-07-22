@@ -1,0 +1,156 @@
+@use "../base/madia" as *;
+@use "../base/mixin" as *;
+
+.process {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    counter-reset: custom-counter;
+    list-style: none;
+
+    @include mobile {
+      row-gap: 20px;
+    }
+  }
+
+  &__item {
+    counter-increment: custom-counter;
+
+    --counterContent: counter(custom-counter);
+
+    &:nth-child(-n + 9) {
+      --counterContent: "0" counter(custom-counter);
+    }
+  }
+
+  &__accordion {
+    padding: 41px 60px;
+    border-radius: var(--border-radius-big);
+    border: var(--border);
+    background-color: var(--color-gray);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition-duration);
+
+    @include hover {
+      background-color: var(--color-green);
+    }
+
+    @include mobile {
+      padding: 30px;
+    }
+
+    @include mobile-s {
+      padding: 30px 20px;
+    }
+
+    &[open] {
+      background-color: var(--color-green);
+
+      .process__accordion-indecaitor {
+        &::after {
+          scale: 0;
+          height: 18px;
+        }
+        &::before {
+          width: 18px;
+        }
+      }
+    }
+  }
+
+  &__accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 50px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__accordion-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    @include mobile {
+      column-gap: 10px;
+    }
+
+    &--text {
+      padding-top: 30px;
+      border-top: var(--border);
+      margin-top: 30px;
+    }
+  }
+
+  &__accordion-title {
+    display: flex;
+    align-items: center;
+
+    @include fluid-text(30, 18);
+
+    &::before {
+      content: var(--counterContent);
+      padding-right: 25px;
+
+      @include fluid-text(60, 30);
+
+      @include mobile {
+        padding-right: 33px;
+      }
+
+      @include mobile-s {
+        padding-right: 25px;
+      }
+    }
+  }
+
+  &__accordion-indecaitor {
+    @include flex-center;
+    @include square(58px);
+
+    position: relative;
+    border-radius: 100%;
+    background-color: var(--color-gray);
+    height: 58px;
+    border: var(--border);
+
+    @include mobile {
+      height: 30px;
+      width: 30px;
+    }
+
+    &::before {
+      content: "";
+      width: 25px;
+      height: 5.8px;
+      background-color: var(--color-black-global);
+      border-radius: 3px;
+
+      @include abs-center;
+
+      @include mobile {
+        height: 3.5px;
+        width: 13px;
+      }
+    }
+
+    &::after {
+      content: "";
+      width: 5.8px;
+      height: 25px;
+      background-color: var(--color-black-global);
+      transition: var(--transition-duration);
+      border-radius: 3px;
+
+      @include abs-center;
+
+      @include mobile {
+        width: 3.5px;
+        height: 13px;
+      }
+    }
+  }
+}
