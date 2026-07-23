@@ -60,6 +60,11 @@
       padding: 42px 50px;
       justify-content: space-between;
       scroll-snap-align: start;
+
+      &:last-child {
+        margin-right: 40px;
+      }
+      
     }
   }
 
