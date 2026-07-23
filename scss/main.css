@@ -1022,9 +1022,6 @@ h5 {
     padding: 0;
   }
 
-  .studies__list:last-child {
-    margin-right: 40px;
-  }
 }
 @media (min-width: 768px) {
   .studies__list {
@@ -1061,6 +1058,10 @@ h5 {
     padding: 42px 50px;
     justify-content: space-between;
     scroll-snap-align: start;
+  }
+
+  .studies__list:last-child {
+    margin-right: 40px;
   }
 }
 .studies__link {
